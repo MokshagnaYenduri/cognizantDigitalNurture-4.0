@@ -2,11 +2,13 @@ package com.inventoryManagement;
 
 import java.util.*;
 
-public class inventoryManager {
+public class InventoryManager {
 	private Map<String, Product> list = new HashMap<>();
 	
 	public void addProduct(Product product) {
 		list.put(product.getProductId(), product);
+		System.out.println("Product added: ");
+		System.out.println(product);
 	}
 	
 	public void updateProduct(String id, double price, int quantity) {

@@ -1,23 +1,23 @@
 package com.inventoryManagement;
 
 public class Product {
-	private int productId;
+	private String productId;
 	private String productName;
 	private int quantity;
 	private double price;
 	
-	public Product(int productId, String productName, int quantity, double price) {
+	public Product(String productId, String productName, int quantity, double price) {
 		this.productId = productId;
 		this.productName = productName;
 		this.quantity = quantity;
 		this.price = price;
 	}
 
-	public int getProductId() {
+	public String getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(String productId) {
 		this.productId = productId;
 	}
 

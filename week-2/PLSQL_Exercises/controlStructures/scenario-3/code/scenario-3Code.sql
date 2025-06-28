@@ -1,0 +1,18 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_customer_name Customers.Name%TYPE;
+BEGIN
+    FOR loan_rec IN (
+        SELECT LoanID, CustomerID, EndDate
+        FROM Loans
+        WHERE EndDate BETWEEN SYSDATE AND SYSDATE + 30
+    ) LOOP
+        SELECT Name
+        INTO v_customer_name
+        FROM Customers
+        WHERE CustomerID = loan_rec.CustomerID;
+        DBMS_OUTPUT.PUT_LINE('Reminder: Loan ID ' || loan_rec.LoanID ||' for customer "' || v_customer_name ||'" is due on ' || TO_CHAR(loan_rec.EndDate, 'DD-MON-YYYY'));
+    END LOOP;
+END;
+/

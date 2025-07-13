@@ -1,0 +1,7 @@
+<beans>
+<bean id="country" class="com.cognizant.countryFromXML.Country">
+	<property name = "code" value = "IN" />
+	<property name = "name" value ="India" />
+</bean>
+
+</beans>

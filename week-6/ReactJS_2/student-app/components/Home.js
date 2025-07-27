@@ -1,0 +1,9 @@
+import React,{Component} from "react";
+
+import class Home extends Component {
+    render(){
+        <div>
+            <h3>Welcome to the home page of student management portal</h3>
+        </div>
+    }
+}

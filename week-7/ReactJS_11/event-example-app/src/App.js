@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CurrencyConvertor from './CurrencyConvertor';
+import CurrencyConvertor from './currencyConverter';
 import './App.css';
 
 function App() {

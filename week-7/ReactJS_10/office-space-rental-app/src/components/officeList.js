@@ -1,5 +1,5 @@
 import React from 'react';
-import './OfficeList.css';
+import './officeList.css';
 
 const OfficeList = () => {
   const heading = <h2>Office Space , at Affordable Range</h2>;

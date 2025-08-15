@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import CourseDetails from "./components/CourseDetails";
+import BookDetails from "./components/BookDetails";
+import BlogDetails from "./components/BlogDetails";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const courses = [
+    { id: 1, name: "Angular", date: "4/5/2021" },
+    { id: 2, name: "React", date: "6/12/2021" },
+  ];
+
+  const books = [
+    { id: 1, name: "Master React", price: 670 },
+    { id: 2, name: "Deep Dive into Angular 11", price: 800 },
+    { id: 3, name: "Mongo Essentials", price: 450 },
+  ];
+
+  const blogs = [
+    { id: 1, title: "React Learning", author: "Stephen Biz", content: "Welcome to learning React!" },
+    { id: 2, title: "Installation", author: "Schwedenizer", content: "You can install React from npm." }
+  ];
+
+  const showCourses = true;
+  const showBooks = true;
+  const showBlogs = true;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div style={{ display: "flex", justifyContent: "space-around", marginTop: "50px" }}>
+      
+      {/* Conditional Rendering: Logical AND */}
+      {showCourses && <CourseDetails courses={courses} />}
 
-export default App
+      {/* Conditional Rendering: Ternary Operator */}
+      {showBooks ? <BookDetails books={books} /> : <p>Books hidden</p>}
+
+      {/* Conditional Rendering: IIFE */}
+      {(() => {
+        if (showBlogs) {
+          return <BlogDetails blogs={blogs} />;
+        } else {
+          return <p>Blogs are disabled</p>;
+        }
+      })()}
+    </div>
+  );
+}
